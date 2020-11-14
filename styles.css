@@ -1,5 +1,22 @@
+body{
+    font-family: "Poppins";
+}
+
+p{
+    margin: 5px;
+    padding-top: 20px;
+}
+
+.header{
+    font-size: x-large;
+    color: white;
+    background-color: #0072bb;
+    padding: 20px;
+}
+
 input[type=text], select {
-    width: 25%;
+    font-family: "Poppins";
+    width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
@@ -9,18 +26,19 @@ input[type=text], select {
   }
   
   input[type=submit] {
+    font-family: "Poppins";
     width: 50%;
-    background-color: #cb262c;
+    background-color: #0072bb;
     color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
+    padding: 14px 0px;
+    margin: 8px 25%;
     border: none;
     border-radius: 4px;
     cursor: pointer;
   }
   
   input[type=submit]:hover {
-    background-color: #b32127;
+    background-color: #00558b;
   }
   
   .container {
@@ -29,15 +47,25 @@ input[type=text], select {
     padding: 20px;
   }
 
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
+  .row {
+    margin: 0px 0px;
+    width: 100%;
   }
+  
+  .leftColumn {
+    width: 50%;
+    float: left;
+  }
+
+  .rightColumn{
+      width: 50%;
+      float: right;
+  }
+
   .nameColumn{
     width: 25%;
   }
 
   .inputColumn{
-    width: 75%;
+    width: 90%;
   }

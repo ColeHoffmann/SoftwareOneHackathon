@@ -3,37 +3,65 @@
 
 <head>
   <meta charset="utf-8">
-  <title> State Auto Comparison 
+  <title> County Risk Comparison 
   </title>
   <meta name="author" content="">
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link href="styles.css" rel="stylesheet">
+  <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Poppins">
 </head>
 
 <body>
+  <div class="header">
+    County Risk Comparison
+  </div>
   <p>Please enter county name and state abbreviation.</p>
-  <br />
   <div class="container">
     <form id="frm1">
-      <div class="row">
-        <div class="nameColumn">
-          <label for="county">County</label>
+      <div class="leftColumn">
+        <div class="row">
+          <div class="nameColumn">
+            <label for="county">County</label>
+          </div>
+          <div class="inputColumn">
+            <input type="text" name="county" placeholder="Current county...">
+          </div>
         </div>
-        <div class="inputColumn">
-          <input type="text" name="county">
+        <div class="row">
+          <div class="nameColumn">
+            <label for="state">State</label>
+          </div>
+          <div class="inputColumn">
+            <input type="text" name="state" placeholder="Current state... (Ex. IA = Iowa)">
+          </div>
         </div>
       </div>
-      <div class="row">
-        <div class="nameColumn">
-          <label for="state">State</label>
+      <div class="rightColumn">
+        <div class="row">
+          <div class="nameColumn">
+            <label for="county">County</label>
+          </div>
+          <div class="inputColumn">
+            <input type="text" name="" placeholder="New county...">
+          </div>
         </div>
-        <div class="inputColumn">
-          <input type="text" name="state">
+        <div class="row">
+          <div class="nameColumn">
+            <label for="state">State</label>
+          </div>
+          <div class="inputColumn">
+            <input type="text" name="" placeholder="New state... (Ex. OH = Ohio)">
+          </div>
         </div>
       </div>
-      <input type="submit" onclick="getCountyState()" value="Compare">
+      
+      <div class="row">
+        <input type="submit" onclick="getCountyState()" value="Compare">
+      </div>
+      
     </form>
   </div>
 
