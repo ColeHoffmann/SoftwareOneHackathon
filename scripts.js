@@ -38,6 +38,8 @@ function getCountyState(){
     
     city1 = x.elements[0].value;
     state1 = x.elements[1].value;
+    city2 = x.elements[2].value;
+    state2 = x.elements[3].value;
     console.log(city1 + state1);
    
     //This is the first and initiral API call, it will allow us to get all the data for our counties and departments from our initial HTML forms. 
@@ -64,7 +66,7 @@ function getCountyState(){
 
     console.log(robberys(ORI1))
     //display
-    displayResult(county + "County", state, "Any County", "ZZ");
+    displayResult(city1, state1, ORI1, city2, state2, ORI2);
     }
 
 function addORI1(){ 
@@ -97,7 +99,7 @@ function robberys(ORI){
         if (robRequest.status >= 200 && robRequest.status < 400){ 
                 robberyData = JSON.parse(this.response)
                 console.log("Robbery Data" + robberyData.results.length)
-                return(robberyData.results.length)
+                return(robberyData.results[0].actual)
              
         }
     }
@@ -105,23 +107,34 @@ function robberys(ORI){
     robRequest.send(); 
 }
 
-function displayResult(county1, state1, county2, state2){
-    document.write("<table>");
+function displayResult(city1, state1, ORI1, city2, state2, ORI2){
+    // document.write("<table>");
 
-    //#region Header Row
-    document.write("<tr>")
-    document.write("<th>" + county1 + ", " + state1 + "</th>");
-    document.write("<th>" + county2 + ", " + state2 + "</th>");
-    document.write("</tr>");
-    //#endregion
+    // //#region Header Row
+    // document.write("<tr>")
+    // document.write("<th>" + city1 + ", " + state1 + "</th>");
+    // document.write("<th>" + city2 + ", " + state2 + "</th>");
+    // document.write("</tr>");
+    // //#endregion
     
-    //#region Robberies
-    document.write("<tr>");
-    document.write("<th>Robberies</th>");
-    // document.write("<td>" + fuction call + "</td>")
-    document.write("<th>Robberies</th>");
-    // document.write("<td>" + fuction call + "</td>")
-    document.write("</tr>");
+    // //#region Robberies
+    // document.write("<tr>");
+    // document.write("<th>Robberies</th>");
+    // document.write("<td>" + robberys(ORI1) + "</td>")
+    // document.write("<th>Robberies</th>");
+    // document.write("<td>" + robberys(ORI2) + "</td>")
+    // document.write("</tr>");
 
-    document.write("</table>");
+    // document.write("</table>");
+
+    var outputHTML = "<table>";
+    
+    //#region Header Row 
+    outputHTML += "<tr>"
+    outputHTML += "<th>" + city1 + ", " + state1 + "</th>";
+    outputHTML += "<th>" + city2 + ", " + state2 + "</th>";
+    outputHTML += "</tr>"
+    //#endregion
+
+    document.getElementById("result").innerHTML = outputHTML;
 }
