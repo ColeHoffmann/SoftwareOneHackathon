@@ -19,6 +19,7 @@ var OPI;
 var Long;
 var Lat; 
 var stateJsonData
+
 //Fuction to set state and county
 function getCountyState(){
     var x = document.getElementById("frm1");
@@ -43,8 +44,26 @@ function getCountyState(){
     }
     request.send()
     console.log(stateJsonData)
+    //addOri()
+    var ORIarray = addORI();
+    console.log(ORIarray)
+    //display
     }
 
+
+
+
+
+function addORI(){ 
+    var ORIarray = []; 
+
+    var countyArray = stateJsonData.results; 
+
+    countyArray.forEach(element => {
+        if( element.county_name.toString().toLowerCase() == county.toString().toLowerCase() ) { ORIarray.push(element.ori) }
+    });
+    return ORIarray;
+}
 
 
 
