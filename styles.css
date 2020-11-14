@@ -25,7 +25,7 @@ input[type=text], select {
     box-sizing: border-box;
   }
   
-  input[type=submit] {
+  input[type= button] {
     font-family: "Poppins";
     width: 50%;
     background-color: #0072bb;
