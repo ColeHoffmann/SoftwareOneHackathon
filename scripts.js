@@ -141,22 +141,26 @@ function robberys(ORI){
 }
 
 function displayResult(city1, state1, ORI1, city2, state2, ORI2){
-    var outputHTML = "<table>";
+    var outputHTML = "<div class=\"compareTable\">";
     
     //#region Header Row 
-    outputHTML += "<tr>"
-    outputHTML += "<th>" + city1 + ", " + state1 + "</th>";
-    outputHTML += "<th>" + city2 + ", " + state2 + "</th>";
-    outputHTML += "</tr>"
+    outputHTML += "<div class=\"headerRow\">"
+    outputHTML += "<div class=\"headerElement\">" + city1 + ", " + state1 + "</div>";
+    outputHTML += "<div class=\"headerElement\"></div>"
+    outputHTML += "<div class=\"headerElement\">" + city2 + ", " + state2 + "</div>";
+    outputHTML += "<div class=\"headerElement\"></div>"
+    outputHTML += "</div>"
     //#endregion
 
     //#region Robberies
-    outputHTML += "<tr>"
-    outputHTML += "<th>Robberies</th>"
-    outputHTML += "<td>" + robberys(ORI1) + "</td>"
-    outputHTML += "<th>Robberies</th>"
-    outputHTML += "<td>" + robberys(ORI2) + "</td>"
-    outputHTML += "</tr>"
+    outputHTML += "<div class=\"ctRow\">"
+    outputHTML += "<div class=\"ctElement\">Robberies</div>"
+    outputHTML += "<div class=\"ctElement\">" + robberys(ORI1) + "</div>"
+    outputHTML += "<div class=\"ctElement\">Robberies</div>"
+    outputHTML += "<div class=\"ctElement\">" + robberys(ORI2) + "</div>"
+    outputHTML += "</div>"
+
+    outputHTML += "</div>"
 
     document.getElementById("result").innerHTML = outputHTML;
 }

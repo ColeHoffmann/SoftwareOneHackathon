@@ -37,7 +37,7 @@ input[type=text], select {
     cursor: pointer;
   }
   
-  input[type=submit]:hover {
+  input[type=button]:hover {
     background-color: #00558b;
   }
   
@@ -73,4 +73,38 @@ input[type=text], select {
 
   .result{
     width: 100%;
+  }
+
+  .compareTable{
+    display: table;
+    background-color: #f2f2f2;
+    width: 100%;         
+    border-spacing: 5px;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 5px 5px;
+  }
+
+  .headerRow{
+    background-color: #0072bb;
+    color: white;
+    display: table-row;
+    width: auto;
+    clear: both;
+  }
+
+  .headerElement{
+    display: table-cell;
+    width: 25%;
+  }
+
+  .ctRow{
+    display: table-row;
+    width: auto;
+    clear: both;
+  }
+
+  .ctElement{
+    display: table-cell;
+    width: 25%;
   }
