@@ -48,7 +48,10 @@ function getCountyState(){
     var ORIarray = addORI();
     console.log(ORIarray)
     console.log("Longitude : " + long + ". Latitude : " + lat)
+
+ 
     //display
+    displayResult(county + "County", state, "Any County", "ZZ");
     }
 
 
@@ -75,3 +78,23 @@ function addORI(){
 
 //get /api/summarized/agencies/{ori}/offenses/{since}/{until} Agency level SRS Crime Data Endpoint
 
+function displayResult(county1, state1, county2, state2){
+    document.write("<table>");
+
+    //#region Header Row
+    document.write("<tr>")
+    document.write("<th>" + county1 + ", " + state1 + "</th>");
+    document.write("<th>" + county2 + ", " + state2 + "</th>");
+    document.write("</tr>");
+    //#endregion
+    
+    //#region Robberies
+    document.write("<tr>");
+    document.write("<th>Robberies</th>");
+    // document.write("<td>" + fuction call + "</td>")
+    document.write("<th>Robberies</th>");
+    // document.write("<td>" + fuction call + "</td>")
+    document.write("</tr>");
+
+    document.write("</table>");
+}
