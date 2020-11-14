@@ -132,12 +132,12 @@ function robberys(ORI){
         if (robRequest.status >= 200 && robRequest.status < 400){ 
                  robberyData = JSON.parse(this.response)
                 console.log(robberyData.results[0].actual)
-                return robberyData.results[0].actual
                          
         }
     }
     
      robRequest.send(); 
+     return robberyData.results[0].actual
 }
 
 
@@ -157,13 +157,13 @@ function propertyCrime(ORI){
     propertyRequest.onload = function(){ 
         if (propertyRequest.status >= 200 && propertyRequest.status < 400){ 
                  propertyData = JSON.parse(this.response)
-                console.log("Property Crime" + propertyData.results[0].actual)
-                return propertyData.results[0].actual
-                         
+                console.log("Property Crime" + propertyData.results[0].actual)                         
         }
     }
     
     propertyRequest.send(); 
+    return propertyData.results[0].actual
+
 }
 
 function displayResult(city1, state1, ORI1, city2, state2, ORI2){
@@ -181,7 +181,11 @@ function displayResult(city1, state1, ORI1, city2, state2, ORI2){
     //#region Robberies
     outputHTML += "<div class=\"ctRow\">"
     outputHTML += "<div class=\"ctElement\">Robberies</div>"
-    outputHTML += "<div class=\"ctElement\">" + robberys(ORI1) + "</div>"
+
+    var robberyCity1 = robberys(ORI1); 
+    console.log("The amount of robberies in City 1 for the HTML is " + robberyCity1);
+
+    outputHTML += "<div class=\"ctElement\">" + robberyCity1 + "</div>"
     outputHTML += "<div class=\"ctElement\">Robberies</div>"
     outputHTML += "<div class=\"ctElement\">" + robberys(ORI2) + "</div>"
     outputHTML += "</div>"
