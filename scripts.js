@@ -16,8 +16,8 @@ var crimeKey = "XxOvncSyx9ZQTH8O2ENMuKTr5pXB2Pfdf3zvGEld"
 var state;
 var county; 
 var OPI; 
-var Long;
-var Lat; 
+var long;
+var lat; 
 var stateJsonData
 
 //Fuction to set state and county
@@ -47,6 +47,7 @@ function getCountyState(){
     //addOri()
     var ORIarray = addORI();
     console.log(ORIarray)
+    console.log("Longitude : " + long + ". Latitude : " + lat)
     //display
     }
 
@@ -60,7 +61,12 @@ function addORI(){
     var countyArray = stateJsonData.results; 
 
     countyArray.forEach(element => {
-        if( element.county_name.toString().toLowerCase() == county.toString().toLowerCase() ) { ORIarray.push(element.ori) }
+        if( element.county_name.toString().toLowerCase() == county.toString().toLowerCase() ) {
+             ORIarray.push(element.ori)
+            long = element.longitude; 
+            lat = element.latitude; 
+            }
+    
     });
     return ORIarray;
 }
