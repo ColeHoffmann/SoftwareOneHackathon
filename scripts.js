@@ -48,7 +48,7 @@ function getCountyState(){
 
 
     var request = new XMLHttpRequest(); 
-    request.open(method, StateDataURL, true);
+    request.open(method, StateDataURL, false);
     request.onload = function(){ 
         console.log(request.status)
         if (request.status >= 200 && request.status < 400){ 
@@ -61,7 +61,7 @@ function getCountyState(){
     console.log(StateDataUrl2)
 
     var requestState2 = new XMLHttpRequest();
-    requestState2.open(method, StateDataUrl2, true);
+    requestState2.open(method, StateDataUrl2, false);
     requestState2.onload = function(){ 
         console.log(requestState2.status)
         if (requestState2.status >= 200 && requestState2.status < 400){ 
@@ -125,19 +125,45 @@ function robberys(ORI){
     console.log(robberyCallURL)
 
     var robRequest = new XMLHttpRequest();
-    robRequest.open(method, robberyCallURL, true);
+    robRequest.open(method, robberyCallURL, false);
 
     var robberyData;
     robRequest.onload = function(){ 
         if (robRequest.status >= 200 && robRequest.status < 400){ 
-                robberyData = JSON.parse(this.response)
+                 robberyData = JSON.parse(this.response)
                 console.log(robberyData.results[0].actual)
                 return robberyData.results[0].actual
                          
         }
     }
     
-    robRequest.send(); 
+     robRequest.send(); 
+}
+
+
+
+
+//This will return the property-crime from 
+function propertyCrime(ORI){
+    var propertyCallURL = "https://api.usa.gov/crime/fbi/sapi/api/summarized/agencies/"+ORI+"/property-crime/2019/2019?API_KEY=" +crimeKey
+    
+
+    console.log(propertyCallURL)
+
+    var propertyRequest = new XMLHttpRequest();
+    propertyRequest.open(method, propertyCallURL, false);
+
+    var propertyData;
+    propertyRequest.onload = function(){ 
+        if (propertyRequest.status >= 200 && propertyRequest.status < 400){ 
+                 propertyData = JSON.parse(this.response)
+                console.log("Property Crime" + propertyData.results[0].actual)
+                return propertyData.results[0].actual
+                         
+        }
+    }
+    
+    propertyRequest.send(); 
 }
 
 function displayResult(city1, state1, ORI1, city2, state2, ORI2){
