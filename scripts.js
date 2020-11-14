@@ -1,4 +1,5 @@
 
+
 //This will be the scripts that will take values from the api. 
 
 //Potential Data Sources to use:
@@ -41,3 +42,4 @@ request.send()
 console.log(stateJsonData)
 
 //get /api/summarized/agencies/{ori}/offenses/{since}/{until} Agency level SRS Crime Data Endpoint
+
