@@ -41,7 +41,7 @@ function getCountyState(){
     city2 = x.elements[2].value;
     state2 = x.elements[3].value;
     console.log(city1 + state1);
-   
+  
     //This is the first and initiral API call, it will allow us to get all the data for our counties and departments from our initial HTML forms. 
     var StateDataURL = "https://api.usa.gov/crime/fbi/sapi/api/agencies/byStateAbbr/" + state1 + "//?API_KEY=" + crimeKey
     console.log(StateDataURL)
@@ -49,7 +49,6 @@ function getCountyState(){
 
     var request = new XMLHttpRequest(); 
     request.open(method, StateDataURL, true);
-
     request.onload = function(){ 
         console.log(request.status)
         if (request.status >= 200 && request.status < 400){ 
@@ -57,13 +56,31 @@ function getCountyState(){
             console.log(stateJsonData1)
         }
     }
+
+    var StateDataUrl2 = "https://api.usa.gov/crime/fbi/sapi/api/agencies/byStateAbbr/" + state2 + "//?API_KEY=" + crimeKey
+    console.log(StateDataUrl2)
+
+    var requestState2 = new XMLHttpRequest();
+    requestState2.open(method, StateDataUrl2, true);
+    requestState2.onload = function(){ 
+        console.log(requestState2.status)
+        if (requestState2.status >= 200 && requestState2.status < 400){ 
+            stateJsonData2 = JSON.parse(this.response)
+            console.log(stateJsonData1)
+        }
+    }
     request.send()
+    requestState2.send(); 
+
+
     console.log(stateJsonData1)
     //addOri()
     addORI1();
+    addORI2(); 
     console.log("AFTER ORI ORI1")
     console.log("Longitude : " + long1 + ". Latitude : " + lat1)
-
+    console.log("AFTER ORI ORI2")
+    console.log("Longitude : " + long2 + ". Latitude : " + lat2)
     console.log(robberys(ORI1))
     //display
     displayResult(city1, state1, ORI1, city2, state2, ORI2);
@@ -78,6 +95,22 @@ function addORI1(){
             ORI1 = element.ori
             long1 = element.longitude; 
             lat1 = element.latitude; 
+            console.log("ORI : " + ORI1  + "Long :" + long1 + "lat : " + lat1)
+        }
+    });
+    
+}
+
+
+function addORI2(){ 
+
+    var cityArray = stateJsonData2.results; 
+
+    cityArray.forEach(element => {
+        if( (element.agency_name.toString().toLowerCase()).includes(city2.toString().toLowerCase())) {
+            ORI2 = element.ori
+            long2 = element.longitude; 
+            lat2 = element.latitude; 
             console.log("ORI : " + ORI1  + "Long :" + long1 + "lat : " + lat1)
         }
     });
