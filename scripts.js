@@ -141,25 +141,6 @@ function robberys(ORI){
 }
 
 function displayResult(city1, state1, ORI1, city2, state2, ORI2){
-    // document.write("<table>");
-
-    // //#region Header Row
-    // document.write("<tr>")
-    // document.write("<th>" + city1 + ", " + state1 + "</th>");
-    // document.write("<th>" + city2 + ", " + state2 + "</th>");
-    // document.write("</tr>");
-    // //#endregion
-    
-    // //#region Robberies
-    // document.write("<tr>");
-    // document.write("<th>Robberies</th>");
-    // document.write("<td>" + robberys(ORI1) + "</td>")
-    // document.write("<th>Robberies</th>");
-    // document.write("<td>" + robberys(ORI2) + "</td>")
-    // document.write("</tr>");
-
-    // document.write("</table>");
-
     var outputHTML = "<table>";
     
     //#region Header Row 
@@ -168,6 +149,14 @@ function displayResult(city1, state1, ORI1, city2, state2, ORI2){
     outputHTML += "<th>" + city2 + ", " + state2 + "</th>";
     outputHTML += "</tr>"
     //#endregion
+
+    //#region Robberies
+    outputHTML += "<tr>"
+    outputHTML += "<th>Robberies</th>"
+    outputHTML += "<td>" + robberys(ORI1) + "</td>"
+    outputHTML += "<th>Robberies</th>"
+    outputHTML += "<td>" + robberys(ORI2) + "</td>"
+    outputHTML += "</tr>"
 
     document.getElementById("result").innerHTML = outputHTML;
 }
