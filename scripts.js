@@ -140,6 +140,32 @@ function robberys(ORI){
      robRequest.send(); 
 }
 
+
+
+
+//This will return the property-crime from 
+function propertyCrime(ORI){
+    var propertyCallURL = "https://api.usa.gov/crime/fbi/sapi/api/summarized/agencies/"+ORI+"/property-crime/2019/2019?API_KEY=" +crimeKey
+    
+
+    console.log(propertyCallURL)
+
+    var propertyRequest = new XMLHttpRequest();
+    propertyRequest.open(method, propertyCallURL, false);
+
+    var propertyData;
+    propertyRequest.onload = function(){ 
+        if (propertyRequest.status >= 200 && propertyRequest.status < 400){ 
+                 propertyData = JSON.parse(this.response)
+                console.log("Property Crime" + propertyData.results[0].actual)
+                return propertyData.results[0].actual
+                         
+        }
+    }
+    
+    propertyRequest.send(); 
+}
+
 function displayResult(city1, state1, ORI1, city2, state2, ORI2){
     var outputHTML = "<table>";
     
@@ -159,6 +185,8 @@ function displayResult(city1, state1, ORI1, city2, state2, ORI2){
     var robsCity2 = robberys(ORI2)
     outputHTML += "<td>" + robsCity2+ "</td>"
     outputHTML += "</tr>"
+    var propCrimeCity1 = propertyCrime(ORI1);
+    var propCrimeCity2 = propertyCrime(ORI2);
 
     document.getElementById("result").innerHTML = outputHTML;
 }
