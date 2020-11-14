@@ -48,7 +48,7 @@ function getCountyState(){
 
 
     var request = new XMLHttpRequest(); 
-    request.open(method, StateDataURL, true);
+    request.open(method, StateDataURL, false);
     request.onload = function(){ 
         console.log(request.status)
         if (request.status >= 200 && request.status < 400){ 
@@ -61,7 +61,7 @@ function getCountyState(){
     console.log(StateDataUrl2)
 
     var requestState2 = new XMLHttpRequest();
-    requestState2.open(method, StateDataUrl2, true);
+    requestState2.open(method, StateDataUrl2, false);
     requestState2.onload = function(){ 
         console.log(requestState2.status)
         if (requestState2.status >= 200 && requestState2.status < 400){ 
@@ -125,19 +125,19 @@ function robberys(ORI){
     console.log(robberyCallURL)
 
     var robRequest = new XMLHttpRequest();
-    robRequest.open(method, robberyCallURL, true);
+    robRequest.open(method, robberyCallURL, false);
 
     var robberyData;
     robRequest.onload = function(){ 
         if (robRequest.status >= 200 && robRequest.status < 400){ 
-                robberyData = JSON.parse(this.response)
+                 robberyData = JSON.parse(this.response)
                 console.log(robberyData.results[0].actual)
                 return robberyData.results[0].actual
                          
         }
     }
     
-    robRequest.send(); 
+     robRequest.send(); 
 }
 
 function displayResult(city1, state1, ORI1, city2, state2, ORI2){
@@ -153,9 +153,11 @@ function displayResult(city1, state1, ORI1, city2, state2, ORI2){
     //#region Robberies
     outputHTML += "<tr>"
     outputHTML += "<th>Robberies</th>"
-    outputHTML += "<td>" + robberys(ORI1) + "</td>"
+    var robsCity1 = robberys(ORI1)
+    outputHTML += "<td>" + robsCity1 + "</td>"
     outputHTML += "<th>Robberies</th>"
-    outputHTML += "<td>" + robberys(ORI2) + "</td>"
+    var robsCity2 = robberys(ORI2)
+    outputHTML += "<td>" + robsCity2+ "</td>"
     outputHTML += "</tr>"
 
     document.getElementById("result").innerHTML = outputHTML;
