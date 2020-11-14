@@ -98,9 +98,9 @@ function robberys(ORI){
     robRequest.onload = function(){ 
         if (robRequest.status >= 200 && robRequest.status < 400){ 
                 robberyData = JSON.parse(this.response)
-                console.log("Robbery Data" + robberyData.results.length)
-                return(robberyData.results[0].actual)
-             
+                console.log(robberyData.results[0].actual)
+                return robberyData.results[0].actual
+                         
         }
     }
     
