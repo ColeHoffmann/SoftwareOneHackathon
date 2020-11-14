@@ -13,12 +13,29 @@
 </head>
 
 <body>
-
-  <form id="frm1">
-    County: <input type="text" name="county"><br>
-    State: <input type="text" name="state"><br><br>
-    <input type="button" onclick="getCountyState()" value="Submit">
-  </form>  
+  <p>Please enter county name and state abbreviation.</p>
+  <br />
+  <div class="container">
+    <form id="frm1">
+      <div class="row">
+        <div class="nameColumn">
+          <label for="county">County</label>
+        </div>
+        <div class="inputColumn">
+          <input type="text" name="county">
+        </div>
+      </div>
+      <div class="row">
+        <div class="nameColumn">
+          <label for="state">State</label>
+        </div>
+        <div class="inputColumn">
+          <input type="text" name="state">
+        </div>
+      </div>
+      <input type="submit" onclick="getCountyState()" value="Compare">
+    </form>
+  </div>
 
   <script src="scripts.js"></script>
 </body>
