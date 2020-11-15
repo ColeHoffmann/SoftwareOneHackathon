@@ -168,28 +168,18 @@ function propertyCrime(ORI){
 }
 
 function displayResult(city1, state1, ORI1, city2, state2, ORI2){
-    var outputHTML = "<div class=\"compareTable\">";
+    var outputHTML = "<div class=\"compareGrid\">";
     
     //#region Header Row 
-    outputHTML += "<div class=\"headerRow\">"
-    outputHTML += "<div class=\"headerElement\">" + city1 + ", " + state1 + "</div>";
-    outputHTML += "<div class=\"headerElement\"></div>"
-    outputHTML += "<div class=\"headerElement\">" + city2 + ", " + state2 + "</div>";
-    outputHTML += "<div class=\"headerElement\"></div>"
-    outputHTML += "</div>"
+    outputHTML += "<div class=\"oldCity\">" + city1.toLowerCase() + ", " + state1.toLowerCase() + "</div>";
+    outputHTML += "<div class=\"newCity\">" + city2.toLowerCase() + ", " + state2.toLowerCase() + "</div>";
     //#endregion
 
     //#region Robberies
-    outputHTML += "<div class=\"ctRow\">"
-    outputHTML += "<div class=\"ctElement\">Robberies</div>"
-
-    var robberyCity1 = robberys(ORI1); 
-    console.log("The amount of robberies in City 1 for the HTML is " + robberyCity1);
-
-    outputHTML += "<div class=\"ctElement\">" + robberyCity1 + "</div>"
-    outputHTML += "<div class=\"ctElement\">Robberies</div>"
-    outputHTML += "<div class=\"ctElement\">" + robberys(ORI2) + "</div>"
-    outputHTML += "</div>"
+    outputHTML += "<div class=\"category\">robberies</div>"
+    outputHTML += "<div class=\"data\">" + robberys(ORI1) + "</div>"
+    outputHTML += "<div class=\"category\">robberies</div>"
+    outputHTML += "<div class=\"data\">" + robberys(ORI2) + "</div>"
 
     outputHTML += "</div>"
 

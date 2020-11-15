@@ -75,9 +75,44 @@ input[type=text], select {
   .result{
     width: auto;
   }
+  
+  .compareGrid{
+    display: grid;
+    background-color: #f2f2f2;
+    margin: 5px 5px;
+    padding: 20px;
+    border-radius: 5px;
+    grid-template-columns: auto auto auto auto;
+  }
 
-  .compareTable{
-    display: table;
+  .oldCity{
+    grid-column: 1 / span 2;
+    background-color: #0072bb;
+    text-align: center;
+    color: white;
+    padding: 5px;
+  }
+
+  .newCity{
+    grid-column: 3 / span 2;
+    background-color: #0072bb;
+    text-align: center;
+    color: white;
+    padding: 5px;
+  }
+
+  .category{
+    background-color: #ccc;
+    padding: 5px;
+  }
+
+  .data{
+    background-color: white;
+    padding: 5px;
+  }
+
+  /* .compareTable{
+    display: grid;
     background-color: #f2f2f2;
     width: 100%;         
     border-spacing: 5px;
@@ -89,23 +124,24 @@ input[type=text], select {
   .headerRow{
     background-color: #0072bb;
     color: white;
-    display: table-row;
-    width: auto;
+    /* display: table-row; */
+  /*  column-span: 2;
+    width: 100%;
     clear: both;
   }
 
   .headerElement{
-    display: table-cell;
-    width: 25%;
+    /* display: table-cell; */
+  /*  width: 100%;
   }
 
   .ctRow{
-    display: table-row;
-    width: auto;
+    /* display: table-row; */
+  /*  width: auto;
     clear: both;
   }
 
   .ctElement{
     display: table-cell;
     width: 25%;
-  }
+  } */
