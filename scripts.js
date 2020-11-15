@@ -12,7 +12,7 @@
 //Various: https://www.data.gov/
 
 //FOR CLIMATE:https://app.climate.azavea.com
-    //TOKEN: c20a74679b7e037572db1ab3159308a3702d422f
+var weatherKey = "3780541cfea51d2c3d399877d05f1a92"
 const method = "GET";
 var crimeKey = "XxOvncSyx9ZQTH8O2ENMuKTr5pXB2Pfdf3zvGEld" 
 
@@ -169,53 +169,47 @@ function propertyCrime(ORI){
 
 }
 
-//This will return the avg temp. from 
-// function avgTemp(long, lat){
-//     var avgTempCallURL = "https://app.climate.azavea.com/api/" + lat + "/" + long + "historical/"
-    
 
-//     console.log(propertyCallURL)
+// //api.openweathermap.org/data/2.5/weather?q={city name},{state code}&appid={API key}
+// //This will return the avg temp. from 
+//  function avgTemp(long, lat){
+//      var avgTempCallURL = "api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+long+"&appid="+weatherKey
+//      console.log(avgTempCallURL)
 
-//     var propertyRequest = new XMLHttpRequest();
-//     propertyRequest.open(method, propertyCallURL, false);
+//     fetch(avgTempCallURL)
+//     .then(response => response.json())
+//     .then(
+//         console.log(response.json())
+      
+//         // do stuff with the data
+//     )
 
-//     var propertyData;
-//     propertyRequest.onload = function(){ 
-//         if (propertyRequest.status >= 200 && propertyRequest.status < 400){ 
-//                  propertyData = JSON.parse(this.response)
-//                 console.log("Property Crime" + propertyData.results[0].actual)
-                         
-//         }
-//     }
-    
-//     propertyRequest.send();
-//     return propertyData.results[0].actual
-
-// }
+//  }
 
 function displayResult(city1, state1, ORI1, city2, state2, ORI2, long1, lat1, long2, lat2){
     var outputHTML = "<div class=\"compareGrid\">";
     
     //#region Header Row 
-    outputHTML += "<div class=\"oldCity\">" + city1.toLowerCase() + ", " + state1.toLowerCase() + "</div>";
-    outputHTML += "<div class=\"newCity\">" + city2.toLowerCase() + ", " + state2.toLowerCase() + "</div>";
+    outputHTML += "<div class=\"oldCity\">" + city1 + ", " + state1 + "</div>";
+    outputHTML += "<div class=\"newCity\">" + city2 + ", " + state2+ "</div>";
     //#endregion
 
     //#region Robberies
-    outputHTML += "<div class=\"category\">robberies</div>"
+    outputHTML += "<div class=\"category\">Robberies</div>"
     outputHTML += "<div class=\"data\">" + robberys(ORI1) + "</div>"
-    outputHTML += "<div class=\"category\">robberies</div>"
+    outputHTML += "<div class=\"category\">Robberies</div>"
     outputHTML += "<div class=\"data\">" + robberys(ORI2) + "</div>"
 
     //#region Property Crimes
-    outputHTML += "<div class=\"category\">property crimes</div>"
+    outputHTML += "<div class=\"category\">Property crimes</div>"
     outputHTML += "<div class=\"data\">" + propertyCrime(ORI1) + "</div>"
-    outputHTML += "<div class=\"category\">property crimes</div>"
+    outputHTML += "<div class=\"category\">Property crimes</div>"
     outputHTML += "<div class=\"data\">" + propertyCrime(ORI2) + "</div>"
 
-    // //#region Average Temperature
-    // outputHTML += "<div class=\"category\">average temp.</div>"
-    // outputHTML += "<div class=\"data\">" + propertyCrime(ORI1) + "</div>"
+    //#region Average Temperature
+   // outputHTML += "<div class=\"category\">average temp.</div>"
+    //console.log(long1, lat1)
+    //outputHTML += "<div class=\"data\">" + avgTemp(Math.floor(long1), Math.floor(lat1)) + "</div>"
     // outputHTML += "<div class=\"category\">average temp.</div>"
     // outputHTML += "<div class=\"data\">" + propertyCrime(ORI2) + "</div>"
 
