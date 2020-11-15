@@ -169,6 +169,30 @@ function propertyCrime(ORI){
 
 }
 
+//This will return the avg temp. from 
+// function avgTemp(long, lat){
+//     var avgTempCallURL = "https://app.climate.azavea.com/api/" + lat + "/" + long + "historical/"
+    
+
+//     console.log(propertyCallURL)
+
+//     var propertyRequest = new XMLHttpRequest();
+//     propertyRequest.open(method, propertyCallURL, false);
+
+//     var propertyData;
+//     propertyRequest.onload = function(){ 
+//         if (propertyRequest.status >= 200 && propertyRequest.status < 400){ 
+//                  propertyData = JSON.parse(this.response)
+//                 console.log("Property Crime" + propertyData.results[0].actual)
+                         
+//         }
+//     }
+    
+//     propertyRequest.send();
+//     return propertyData.results[0].actual
+
+// }
+
 function displayResult(city1, state1, ORI1, city2, state2, ORI2, long1, lat1, long2, lat2){
     var outputHTML = "<div class=\"compareGrid\">";
     
@@ -184,10 +208,16 @@ function displayResult(city1, state1, ORI1, city2, state2, ORI2, long1, lat1, lo
     outputHTML += "<div class=\"data\">" + robberys(ORI2) + "</div>"
 
     //#region Property Crimes
-    outputHTML += "<div class=\"category\">robberies</div>"
+    outputHTML += "<div class=\"category\">property crimes</div>"
     outputHTML += "<div class=\"data\">" + propertyCrime(ORI1) + "</div>"
-    outputHTML += "<div class=\"category\">robberies</div>"
+    outputHTML += "<div class=\"category\">property crimes</div>"
     outputHTML += "<div class=\"data\">" + propertyCrime(ORI2) + "</div>"
+
+    // //#region Average Temperature
+    // outputHTML += "<div class=\"category\">average temp.</div>"
+    // outputHTML += "<div class=\"data\">" + propertyCrime(ORI1) + "</div>"
+    // outputHTML += "<div class=\"category\">average temp.</div>"
+    // outputHTML += "<div class=\"data\">" + propertyCrime(ORI2) + "</div>"
 
     outputHTML += "</div>"
 
