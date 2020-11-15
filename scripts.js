@@ -10,6 +10,9 @@
 //Environment Data: https://www.epa.gov/enviro/envirofacts-data-service-api
 //Various: https://rapidapi.com/
 //Various: https://www.data.gov/
+
+//FOR CLIMATE:https://app.climate.azavea.com
+    //TOKEN: c20a74679b7e037572db1ab3159308a3702d422f
 const method = "GET";
 var crimeKey = "XxOvncSyx9ZQTH8O2ENMuKTr5pXB2Pfdf3zvGEld" 
 
@@ -83,7 +86,7 @@ function getCountyState(){
     console.log("Longitude : " + long2 + ". Latitude : " + lat2)
     console.log(robberys(ORI1))
     //display
-    displayResult(city1, state1, ORI1, city2, state2, ORI2);
+    displayResult(city1, state1, ORI1, city2, state2, ORI2, long1, lat1, long2, lat2);
     }
 
 function addORI1(){ 
@@ -130,9 +133,8 @@ function robberys(ORI){
     var robberyData;
     robRequest.onload = function(){ 
         if (robRequest.status >= 200 && robRequest.status < 400){ 
-                 robberyData = JSON.parse(this.response)
-                console.log(robberyData.results[0].actual)
-                         
+            robberyData = JSON.parse(this.response)
+            console.log(robberyData.results[0].actual)
         }
     }
     
@@ -166,7 +168,7 @@ function propertyCrime(ORI){
 
 }
 
-function displayResult(city1, state1, ORI1, city2, state2, ORI2){
+function displayResult(city1, state1, ORI1, city2, state2, ORI2, long1, lat1, long2, lat2){
     var outputHTML = "<div class=\"compareGrid\">";
     
     //#region Header Row 
@@ -179,6 +181,12 @@ function displayResult(city1, state1, ORI1, city2, state2, ORI2){
     outputHTML += "<div class=\"data\">" + robberys(ORI1) + "</div>"
     outputHTML += "<div class=\"category\">robberies</div>"
     outputHTML += "<div class=\"data\">" + robberys(ORI2) + "</div>"
+
+    //#region Property Crimes
+    outputHTML += "<div class=\"category\">robberies</div>"
+    outputHTML += "<div class=\"data\">" + propertyCrime(ORI1) + "</div>"
+    outputHTML += "<div class=\"category\">robberies</div>"
+    outputHTML += "<div class=\"data\">" + propertyCrime(ORI2) + "</div>"
 
     outputHTML += "</div>"
 
