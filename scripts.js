@@ -159,11 +159,12 @@ function propertyCrime(ORI){
     propertyRequest.onload = function(){ 
         if (propertyRequest.status >= 200 && propertyRequest.status < 400){ 
                  propertyData = JSON.parse(this.response)
-                console.log("Property Crime" + propertyData.results[0].actual)                         
+                console.log("Property Crime" + propertyData.results[0].actual)
+                         
         }
     }
     
-    propertyRequest.send(); 
+    propertyRequest.send();
     return propertyData.results[0].actual
 
 }
